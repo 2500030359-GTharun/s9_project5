@@ -1,0 +1,8 @@
+*{
+    background-color: yellow;
+}
+
+.head{
+    display: flex;
+    gap: 20px;
+}
