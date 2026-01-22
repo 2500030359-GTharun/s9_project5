@@ -1,10 +1,14 @@
 import { Link , useLocation } from "react-router-dom"
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import "../components/styles.css"
+
 
 function Master() {
      const location = useLocation();
      const [message, setMessage] = useState("");
+      useEffect(() => {
+        alert(localStorage.getItem("msg"));      
+    }, []);
 
     return (
 
@@ -25,7 +29,11 @@ function Master() {
         type="text"
         placeholder="Enter Username"
         value={message}
-        onChange={(e) => setMessage(e.target.value)}
+        onChange={(e) => {
+                    setMessage(e.target.value);
+                    localStorage.setItem("msg", e.target.value);
+                    localStorage.setItem("username", e.target.value);
+                }}
       />
 </div>
         </>
